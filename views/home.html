@@ -1,0 +1,63 @@
+<section class="row">
+	<div class="hero">
+		<div class="search-container">
+			<div id="search-field">
+				<input type="text" placeholder="Search by name, bread, address, date" id="search-input"
+				ng-model="data.searchFilter" autofocus/>
+			</div>
+		</div>
+	</div>
+	<ng-map zoom="14" style="width: 100vw; height: 100vh; !important;"
+	center="[42.344878,-71.074787]"
+	styles="[{featureType:'road.highway'},{featureType:'road.arterial',elementType:'all',stylers:[{hue:'#2200ff'},{lightness:-40},{visibility:'simplified'},{saturation:30}]},{featureType:'road.local',elementType:'all',stylers:[{hue:'#f6ff00'},{saturation:50},{gamma:0.7},{visibility:'simplified'}]},{featureType:'water',elementType:'geometry',stylers:[{saturation:40},{lightness:40}]},{featureType:'road.highway',elementType:'labels',stylers:[{visibility:'on'},{saturation:98}]},{featureType:'administrative.locality',elementType:'labels',stylers:[{hue:'#0022ff'},{saturation:50},{lightness:-10},{gamma:0.90}]},{featureType:'transit.line',elementType:'geometry',stylers:[{hue:'#ff0000'},{visibility:'on'},{lightness:-70}]}]">
+		<div ng-repeat="p in data.positions | filter:data.searchFilter">
+
+			<marker
+			position="{{p.pos}}"
+			data="{{data.data[$index]}}"
+			title="pos: {{p.pos}}"
+			on-click="map.showInfoWindow(event, p.pos[0] + p.pos[1])"
+			icon="{ url:'images/dog.png', scaledSize:[35,35], origin: [10,10], anchor: [50,50]}"
+			draggable="false"></marker>
+			<info-window  id="{{p.pos[0] + p.pos[1]}}" width="100%" class="center-block text-center"
+			style="padding: 0;z-index: 200 !important">
+				<div ng-bindable>
+					<div id="siteNotice"></div>
+					<h3 id="firstHeading" class="firstHeading text-center">{{data.current[p.pos[0] + p.pos[1]].type}}</h3>
+					<div id="bodyContent"  class="text-center">
+						<p>
+							<a href="{{data.current[p.pos[0] + p.pos[1]].img_url}}" target="_blank"> <img src="{{data.current[p.pos[0] + p.pos[1]].img_url}}" class="center-block img-responsive"
+							width="300px" /> </a>
+							<br />
+							Call <b>{{data.current[p.pos[0] + p.pos[1]].phone_number}}</b> to <b>help me</b> get home safely.
+						<p>
+							<a href="">See more info</a>
+						</p>
+						</p>
+					</div>
+				</div>
+			</info-window>
+		</div>
+	</ng-map>
+
+</section>
+
+<div id="myNav" class="overlay" style="z-index: 3">
+	<a href="javascript:void(0)" class="closebtn" ng-click="actions.closeNav()"
+	style="">&times;</a>
+	<div class="row specalizations">
+		<ul class="col-xs-12 list-unstyled">
+			<li class="col-xs-12 col-sm-6 col-lg-3 col-md-4 arrow" ng-repeat="pet in data.petData">
+				<p>
+					<img class="center-block" src="{{pet.img_url}}" style="height: 90px; width: auto" />
+					<br />
+					<span class="pull-right" >{{"(" + pet.phone_number.substr(0, 3) + ')-' + pet.phone_number.substr(3, 3) + '-' + pet.phone_number.substr(6,4)}}</span>
+					<span class="" ><i class="" aria-hidden="true" class="col-xs-6"></i>{{pet.type}}</span>
+				</p>
+			</li>
+		</ul>
+	</div>
+</div>
+<span style="font-size:20px;cursor:pointer;top:40%; right:0; position: fixed;
+background-color: rgba(255,255,255, 0.3);color: darkRed;border: 1px solid darkRed; padding: 5px"
+ng-click="actions.openNav()"> Pets List &#9776;</span>

@@ -1,0 +1,204 @@
+/* @override
+
+ @import url("http://fonts.googleapis.com/css?family=Bree+Serif|Merriweather:400,300,700,900|Droid+Sans:400,700");
+
+ /*Other Reset*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: inherit;
+	font-size: 100%;
+	vertical-align: baseline;
+	font-family: sans-serif !important;
+	font-weight: thin !important;
+}
+
+html, body, image, iframe, address, object, audio, video {
+	cursor: auto;
+}
+
+html {
+	line-height: 1;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+caption, th, td {
+	text-align: left;
+	font-weight: normal;
+	vertical-align: middle;
+}
+
+q, blockquote {
+	quotes: none;
+}
+
+q:before, q:after, blockquote:before, blockquote:after {
+	content: "";
+	content: none;
+}
+
+a img {
+	border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+	display: block;
+}
+
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* Base Styles */
+.cf:before, .cf:after {
+	content: " "; /* 1 */
+	display: table; /* 2 */
+}
+
+.cf:after {
+	clear: both;
+}
+
+body {
+	background-color: #FFFFFF;
+	-webkit-print-color-adjust: exact !important;
+	print-color-adjust: exact !important;
+}
+
+.hero {
+	height: 80px;
+	padding: 10px;
+	width: 100%;
+	bottom: 0px;
+	position: fixed;
+	background: linear-gradient(135deg, rgba(111, 65, 233, 0.85), rgba(0, 193, 187, 0.85)), url("https://www.battlerite.com/images/wallpaper/1920x1200.jpg") no-repeat center;
+	background-size: cover;
+	z-index: 2;
+	opacity: 0.5;
+}
+.hero .search-container {
+	display: flex;
+	position: relative;
+	top: 5px;
+	/*width: 100%;*/
+	margin: 0px 20px 0px 20px !important;
+}
+.hero .search-container #search-field {
+	max-width: 500px;
+	width: 100%;
+	margin: 0 auto;
+}
+.hero .search-container #search-field input[type="text"] {
+	padding: 0px;
+	color: #fff;
+	width: 100%;
+	max-width: 500px;
+	font-size: 20px;
+	height: 50px;
+	background: transparent;
+	box-shadow: none;
+	border-radius: 25px;
+	border: 2px solid white;
+	outline: 0 !important;
+	padding: 0px 20px 0px 20px;
+	font-weight: 30px;
+}
+.hero .search-container #search-field input[type="text"]::placeholder {/* Firefox 18- */
+	color: white !important;
+}
+
+
+/*Slide out*/
+
+.overlay {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: #000000;
+	background-color: rgba(0,0,0, 0.7);
+	overflow-x: hidden;
+	transition: 0.5s;
+}
+
+.overlay-content {
+	position: relative;
+	top: 25%;
+	width: 100%;
+	text-align: center;
+	margin-top: 30px;
+}
+
+.overlay a {
+	padding: 8px;
+	text-decoration: none;
+	font-size: 36px;
+	color: #818181;
+	display: block;
+	transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+	color: #f1f1f1;
+}
+
+.overlay .closebtn {
+	position: absolute;
+	top: -15px;
+	right: 0px;
+	font-size: 30px;
+	z-index: 2;
+}
+
+@media screen and (max-height: 450px) {
+	.overlay a {
+		font-size: 20px
+	}
+	.overlay .closebtn {
+		font-size: 40px;
+		top: 15px;
+		right: 35px;
+	}
+}
+
+.specalizations ul li, .specalizations ul {
+	margin: 0;
+	padding: 0;
+}
+
+.specalizations ul {
+	margin: -0.2em;
+}
+
+.specalizations ul li p {
+	margin: 0.2em;
+	padding: 1.5em;
+	color: #000;
+	border: 1px solid #c0c0c0;
+	/*background-color: #FFFFFF;*/
+	background-color:#fff;
+	background-image: radial-gradient(#cde364 10%, transparent 10%),
+	radial-gradient(#cde364 10%, transparent 10%);
+	background-size: 30px 30px;
+	background-position: 0 0, 15px 15px;
+}
+
+.specalizations ul li p i {
+	font-size: 1.375em;
+	padding-right: .3em;
+}
+
+
